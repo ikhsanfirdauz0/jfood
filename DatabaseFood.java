@@ -1,9 +1,10 @@
 
 /**
- * Write a description of class DatabaseFood here.
+ * this class contain the database of Food
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ikhsan Firdauz
+ * @version 1.0
+ * @since 27 - 2 - 2020
  */
 public class DatabaseFood
 {
@@ -19,26 +20,36 @@ public class DatabaseFood
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * this method is to add food
+     * @param food is object of Food class that want to be removed
      */
     public boolean addFood(Food food)
     {
         return true;
     }
-    
+
+    /**
+     * this method is to remove food
+     * @param food is the object of Food class that want to be removed
+     */
     public boolean removeFood(Food food)
     {
         return true;
     }
     
+    /**
+     * this method is to get --
+     * @return --
+     */
     public Food getFood()
     {
         return null;
     }
     
+    /**
+     * this method is to display the list of food available
+     * @return the food list
+     */
     public String[] getListFood()
     {
         return listFood;

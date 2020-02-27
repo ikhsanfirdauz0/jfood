@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class JFood here.
+ * this class contains main of the whole program (driver program)
  *
  * @author Ikhsan Firdauz
- * @version (a version number or a date)
+ * @version 1.0
  */
 public class JFood
 {
