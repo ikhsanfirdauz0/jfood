@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=Invoice
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Invoice\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=Invoice()
+comment1.params=id\ idFood\ date\ customer\ totalPrice
+comment1.target=Invoice(int,\ int,\ java.lang.String,\ Customer,\ int)
 comment2.params=
 comment2.target=int\ getId()
 comment3.params=
-comment3.target=int\ getFood()
+comment3.target=int\ getIdFood()
 comment4.params=
 comment4.target=java.lang.String\ getDate()
 comment5.params=
@@ -17,4 +17,6 @@ comment7.params=date
 comment7.target=void\ setDate(java.lang.String)
 comment8.params=totalPrice
 comment8.target=void\ setTotalPrice(int)
-numComments=9
+comment9.params=
+comment9.target=void\ printData()
+numComments=10

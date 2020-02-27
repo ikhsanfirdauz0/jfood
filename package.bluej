@@ -1,7 +1,7 @@
 #BlueJ package file
-editor.fx.0.height=735
-editor.fx.0.width=697
-editor.fx.0.x=-7
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
 editor.fx.0.y=0
 objectbench.height=93
 objectbench.width=760
@@ -50,11 +50,11 @@ target4.showInterface=false
 target4.type=ClassTarget
 target4.width=80
 target4.x=210
-target4.y=100
+target4.y=110
 target5.height=50
 target5.name=Food
 target5.showInterface=false
 target5.type=ClassTarget
 target5.width=80
-target5.x=370
+target5.x=360
 target5.y=220
