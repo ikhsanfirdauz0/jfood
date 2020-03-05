@@ -8,11 +8,13 @@
  */
 public class Food
 {
+   
     
     private int id;
     private String name;
     private int price;
-    private String category;
+   // private String category;
+    private FoodCategory category;
     private Seller seller;
     
     /**
@@ -23,7 +25,7 @@ public class Food
      * @param price is price of the food
      * @param category is the category of the food
      */
-    public Food(int id, String name, Seller seller, int price, String category)
+    public Food(int id, String name, Seller seller, int price, FoodCategory category)
     {
         this.id = id;
         this.name = name;
@@ -63,7 +65,7 @@ public class Food
      * this is the getter of food's category
      * @return category of the food
      */
-    public String getCategory()
+    public FoodCategory getCategory()
     {
         return category;
     }
@@ -108,7 +110,7 @@ public class Food
      * this is the setter of food's category
      * @param category is category of food
      */
-    public void setCategory(String category)
+    public void setCategory(FoodCategory category)
     {
         this.category = category;
     }
@@ -126,7 +128,14 @@ public class Food
      */
     public void printData()
     {
-        System.out.println(name);
+        System.out.println("==========FOOD==========");
+        System.out.println("ID: "+ id);
+        System.out.println("Name: "+ name);
+        System.out.println("Seller: "+ seller.getName());
+        System.out.println("City: "+ seller.getLocation().getCity());
+        System.out.println("Price: "+ price);
+        System.out.println("Category: "+ category);
+        
     }
     
 }

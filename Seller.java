@@ -68,6 +68,11 @@ public class Seller
         return phoneNumber;
     }
     
+    public Location getLocation()
+    {
+        return location;
+    }
+    
     /**
      * this is setter of seller's id
      * @param id is the id of seller
