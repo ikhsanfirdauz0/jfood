@@ -22,9 +22,10 @@
          * @param password is to hold value of object's password
          * @param joinDate is to hold value of object's joinDate 
          */
-        public Customer(int id, String email, String password, String joinDate)
+        public Customer(int id, String name, String email, String password, String joinDate)
         {
             this.id = id;
+            this.name = name;
             this.email = email;
             this.password = password;
             this.joinDate = joinDate;

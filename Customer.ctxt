@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Customer
 comment0.text=\r\n\ this\ class\ is\ holding\ information\ about\ costumer\r\n\r\n\ @author\ Ikhsan\ Firdauz\r\n\ @version\ 1.0\r\n\ @since\ 27\ -\ 2\ -\ 2020\r\n
-comment1.params=id\ email\ password\ joinDate
-comment1.target=Customer(int,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=id\ name\ email\ password\ joinDate
+comment1.target=Customer(int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Customer\r\n\ @param\ id\ is\ to\ hold\ value\ of\ object's\ id\r\n\ @param\ email\ is\ to\ hold\ value\ of\ object's\ email\r\n\ @param\ password\ is\ to\ hold\ value\ of\ object's\ password\r\n\ @param\ joinDate\ is\ to\ hold\ value\ of\ object's\ joinDate\ \r\n
 comment10.params=password
 comment10.target=void\ setPassword(java.lang.String)
