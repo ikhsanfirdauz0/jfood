@@ -6,16 +6,16 @@
  * @version 1.0
  * @since 27 - 2 - 2020
  */
-public class Invoice
+public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     private int id;
-    private int idFood;
+    private Food food;
     private String date;
-    private int totalPrice;
+    protected int totalPrice;
     private Customer customer;
-    private PaymentType paymentType;
-    private InvoiceStatus status;
+   // private PaymentType paymentType;
+    private InvoiceStatus invoiceStatus;
     
     /**
      * This is the constructor for objects of Invoice class
@@ -25,14 +25,14 @@ public class Invoice
      * @param customer is to hold the customer object in the current invoice
      * @param totalPrice is to hold the value of total price of the current invoice
      */
-    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice, InvoiceStatus status)
+    public Invoice(int id, Food food, String date, Customer customer, 
+    InvoiceStatus invoiceStatus)
     {
         this.id = id;
-        this.idFood = idFood;
+        this.food = food;
         this.date = date;
         this.customer = customer;
-        this.totalPrice = totalPrice;
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
 
     /**
@@ -48,9 +48,9 @@ public class Invoice
      * this is the getter of invoice's food id
      * @return food id of the invoice
      */
-    public int getIdFood()
+    public Food getFood()
     {
-        return idFood;
+        return food;
     }
     
     /**
@@ -71,23 +71,28 @@ public class Invoice
         return totalPrice;
     }
     
-    public PaymentType getPaymentType()
+    public Customer getCustomer()
     {
-        return paymentType;
+        return customer;
     }
+    
+    
+    public abstract PaymentType getPaymentType();
     
     public InvoiceStatus getInvoiceStatus()
     {
-        return status;
+        return invoiceStatus;
     }
+    
+
     
     /**
      * this is the setter of invoice's food id
      * @param idFood is the food's id in the current invoice
      */
-    public void setIdFood(int idFood)
+    public void setIdFood(Food food)
     {
-        this.idFood = idFood;
+        this.food = food;
     }
     
     /**
@@ -103,34 +108,23 @@ public class Invoice
      * this is the setter of the invoice's total price
      * @param totalPrice is total price in the invoice 
      */
-    public void setTotalPrice(int totalPrice)
-    {
-        this.totalPrice = totalPrice;
-    }
-    
-    public void setPaymentType(PaymentType paymentType)
-    {
-        this.paymentType = paymentType;
-    }
+    public abstract void setTotalPrice();
+
+   // public void setPaymentType(PaymentType paymentType)
+ //   {
+  //      this.paymentType = paymentType;
+  //  }
     
     public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {
-        this.status = invoiceStatus;
+        this.invoiceStatus = invoiceStatus;
     }
     
     /**
      * this method is to print any data in this class
      */
-    public void printData()
-    {
-        System.out.println("==========INVOICE==========");
-        System.out.println("ID: " + id);
-        System.out.println("Food ID: " + idFood);
-        System.out.println("Date: " + date);
-        System.out.println("Customer: " + customer.getName());
-        System.out.println("Total Price: " + totalPrice);
-        System.out.println("Status: " + status);
-    }
+    public abstract void printData();
+
     
 
 }
