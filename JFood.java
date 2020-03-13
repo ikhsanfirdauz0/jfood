@@ -20,16 +20,25 @@ public class JFood
         Food makanan2 = new Food(2, "Ayam Panggang", penjual1, 20000, FoodCategory.Western);
         Customer pelanggan1 = new Customer(1, "Timothy", "pelanggan@gmail.com", "qwerty", "28-2-2020");        //membuat objek pelanggan
         Promo objPromo1 = new Promo(1, "JFoodJumatBerkah", 2500, 10000, true);
-        Invoice objCashless1 = new CashlessInvoice(1, makanan1, "12-Maret-1999", pelanggan1, InvoiceStatus.Ongoing);
-        Invoice objCashless2 = new CashlessInvoice(2, makanan1, "12-Maret-1999", pelanggan1, InvoiceStatus.Ongoing, objPromo1);
-        Invoice objCashless3 = new CashlessInvoice(3, makanan2, "12-Maret-1999", pelanggan1, InvoiceStatus.Ongoing, objPromo1);
+        Invoice objCashless1 = new CashlessInvoice(1, makanan1, "12-Maret-2020", pelanggan1, InvoiceStatus.Ongoing);
+        Invoice objCashless2 = new CashlessInvoice(2, makanan1, "12-Maret-2020", pelanggan1, InvoiceStatus.Ongoing, objPromo1);
+        Invoice objCashless3 = new CashlessInvoice(3, makanan2, "12-Maret-2020", pelanggan1, InvoiceStatus.Ongoing, objPromo1);
         objCashless1.setTotalPrice();
         objCashless2.setTotalPrice();
         objCashless3.setTotalPrice();
-        objCashless1.printData();
-        objCashless2.printData();
-        objCashless3.printData();
+       // objCashless1.printData();
+       // objCashless2.printData();
+       // objCashless3.printData();
         
+        
+        Invoice objCash1 = new CashInvoice(4, makanan2, "13-Maret-2020", pelanggan1, InvoiceStatus.Finished);
+        Invoice objCash2 = new CashInvoice(5, makanan1, "13-Maret-2020", pelanggan1, InvoiceStatus.Finished, 5000);
+        
+        objCash1.setTotalPrice();
+        objCash2.setTotalPrice();
+        
+        objCash1.printData();
+        objCash2.printData();
         
         //  Invoice struk1 = new Invoice(1, makanan1.getId(), "28-2-2020", pelanggan1, makanan1.getPrice(), InvoiceStatus.Finished);                         //membuat objek invoice
        // System.out.println(penjual1.getName());                                                     //print nama dari objek penjual1 dengan metode getName()
