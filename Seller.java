@@ -112,8 +112,9 @@ public class Seller
     /**
      * this is a method to print any data in this class
      */
-    public void printData()
+    public String toString()
     {
-        System.out.println(name);
+        return "Id = " + getId() + " Nama = " + getName() +
+        " PhoneNumber = " + getPhoneNumber() + " Location = " + getLocation();
     }
 }

@@ -126,16 +126,11 @@ public class Food
     /**
      * this method is to print any data in Food class
      */
-    public void printData()
+    public String toString()
     {
-        System.out.println("==========FOOD==========");
-        System.out.println("ID: "+ id);
-        System.out.println("Name: "+ name);
-        System.out.println("Seller: "+ seller.getName());
-        System.out.println("City: "+ seller.getLocation().getCity());
-        System.out.println("Price: "+ price);
-        System.out.println("Category: "+ category);
-        
+        return "Id = " + getId() + " Nama = " + getName() +
+        " Seller = " + getSeller() + " City = " + seller.getLocation().getCity() + 
+        " Price = " + getPrice() + " Category = " + getCategory();
     }
     
 }

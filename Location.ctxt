@@ -23,6 +23,6 @@ comment7.params=description
 comment7.target=void\ setDescription(java.lang.String)
 comment7.text=\r\n\ this\ is\ the\ setter\ of\ description\r\n\ @param\ description\ is\ holding\ the\ description\ of\ the\ city\r\n
 comment8.params=
-comment8.target=void\ printData()
+comment8.target=java.lang.String\ toString()
 comment8.text=\r\n\ this\ is\ to\ print\ any\ data\ in\ this\ class\r\n
 numComments=9

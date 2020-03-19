@@ -83,9 +83,10 @@ public class Location
     /**
      * this is to print any data in this class
      */
-    public void printData()
+    public String toString()
     {
-        System.out.println(province);
+        return "Province = " + getProvince() + " City = " + getCity() +
+        " Description = " + getDescription();
     }
     
 }
