@@ -1,7 +1,12 @@
 import java.util.*;
+import java.util.regex.*;
 import java.util.Date;
-import java.util.Calendar;
-import java.util.regex.*;       
+import java.util.Calendar;  
+import java.lang.Object;
+import java.text.Format;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+  
     /**
      * this class is holding information about costumer
      *
@@ -162,7 +167,7 @@ import java.util.regex.*;
      */
     public void setJoinDate(Calendar joinDate)
     {
-        this.joinDate = joinDate;
+        this.joinDate = this.joinDate;
     }
     
     public void setJoinDate(int year, int month, int dayOfMonth)
@@ -175,9 +180,18 @@ import java.util.regex.*;
      */
     public String toString()
     {
-        return "Id = " + getId() + " Nama = " + getName() +
-        " Email = " + getEmail() + " Password = " + getPassword() + 
-        " Join Date = " + getJoinDate();
+       String timeNow = "";
+       
+       if(joinDate != null)
+       {
+           SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+           timeNow = sdf.format(joinDate.getTime());
+       }
+       
+       return "\nId = " + getId() + "\nNama = " + getName() +
+       "\nEmail = " + getEmail() + "\nPassword = " + getPassword() + 
+       "\nJoin Date = " + timeNow;
+    
     }
     
 }

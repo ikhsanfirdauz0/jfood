@@ -85,8 +85,8 @@ public class Location
      */
     public String toString()
     {
-        return "Province = " + getProvince() + " City = " + getCity() +
-        " Description = " + getDescription();
+        return "Province = " + getProvince() + "\nCity = " + getCity() +
+        "\nDescription = " + getDescription();
     }
     
 }

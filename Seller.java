@@ -114,7 +114,7 @@ public class Seller
      */
     public String toString()
     {
-        return "Id = " + getId() + " Nama = " + getName() +
-        " PhoneNumber = " + getPhoneNumber() + " Location = " + getLocation();
+        return "Id = " + getId() + "\nNama = " + getName() +
+        "\nPhoneNumber = " + getPhoneNumber() + "\nLocation = " + getLocation();
     }
 }

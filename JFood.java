@@ -21,16 +21,24 @@ public class JFood
      //   Customer pelanggan1 = new Customer(1, "Timothy", "pelanggan@gmail.com", "qwerty", "28-2-2020");        //membuat objek pelanggan
         Promo objPromo1 = new Promo(1, "JFoodJumatBerkah", 2500, 10000, true);
       
-        Customer pelanggan1 = new Customer(1, "Nama Pelanggan1", "pelanggan1@gmail.com",
-        "qwerty123QWERTY",Calendar.getInstance());
+        Customer pelanggan1 = new Customer(1, "Nama Pelanggan1", ".pelanggan1@gmail.com",
+        "qwerty",new GregorianCalendar());
         
-        Customer pelanggan2 = new Customer(1, "Nama Pelanggan2", "pelanggan2@gmail.com",
-        "qwe12rTy",2020, 3, 19);
+        Customer pelanggan2 = new Customer(2, "Nama Pelanggan2", ".pelanggan2@gmail.com",
+        "qwerty",2020, 3, 19);
         
-        Customer pelanggan3= new Customer(1, "Nama Pelanggan3", "pelanggan3@gmail.com",
+        Customer pelanggan3= new Customer(3, "Nama Pelanggan3", "pelanggan3@gmail.com",
         "qwer12Ty");
         
         System.out.println(pelanggan1.toString());
+        System.out.println(pelanggan2.toString());
+        System.out.println(pelanggan3.toString());
+        
+        pelanggan1.setEmail("pelanggan1@gmail.com");
+        pelanggan2.setEmail("pelanggan2@gmail.com");
+        pelanggan1.setPassword("qwerty123QWERTY");
+        pelanggan2.setPassword("qweRTY123");
+
         System.out.println(pelanggan2.toString());
         System.out.println(pelanggan3.toString());
         
