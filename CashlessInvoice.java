@@ -1,4 +1,10 @@
-
+import java.util.*;
+import java.util.Date;
+import java.util.Calendar;  
+import java.lang.Object;
+import java.text.Format;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 /**
  * Write a description of class CashlessInvoice here.
  *
@@ -13,16 +19,16 @@ public class CashlessInvoice extends Invoice
     /**
      * Constructor for objects of class CashlessInvoice
      */
-    public CashlessInvoice(int id, Food food, String date, Customer customer,
+    public CashlessInvoice(int id, Food food, Customer customer,
     InvoiceStatus invoiceStatus)
     {
-        super(id, food, date, customer, invoiceStatus);
+        super(id, food, customer, invoiceStatus);
     }
     
-    public CashlessInvoice(int id, Food food, String date, Customer customer,
+    public CashlessInvoice(int id, Food food, Customer customer,
     InvoiceStatus invoiceStatus, Promo promo)
     {
-        super(id, food, date, customer, invoiceStatus);
+        super(id, food, customer, invoiceStatus);
         this.promo = promo;
     }
 
@@ -33,6 +39,7 @@ public class CashlessInvoice extends Invoice
      * @return    the sum of x and y
      */
     //@Override
+    @Override
     public PaymentType getPaymentType()
     {
         return PAYMENT_TYPE;
@@ -61,22 +68,35 @@ public class CashlessInvoice extends Invoice
     }
     
     
-    public void printData()
+    public String toString()
     {
+        String timeNow = "";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        timeNow = sdf.format(super.getDate().getTime());
         if(promo == null || promo.getActive() == false || getFood().getPrice() < getPromo().getMinPrice()) 
         {
-            System.out.println("==========INVOICE==========");
-            System.out.println("ID: " + super.getId());
-            System.out.println("Food: " + super.getFood().getName());
-            System.out.println("Date: " + super.getDate());
-            System.out.println("Customer: " + super.getCustomer().getName());
-            System.out.println("Total Price: " + getTotalPrice());
-            System.out.println("Status: " + super.getInvoiceStatus());
-            System.out.println("Payment Type: " + PAYMENT_TYPE);
+            return "==========INVOICE==========\n" +
+            "ID : " + super.getId() +
+            "\nFood: " + super.getFood().getName() +
+            "\nFDate: " + timeNow +
+            "\nCustomer: " + super.getCustomer().getName() +
+            "\nTotal Price: " + getTotalPrice() +
+            "\nStatus: " + super.getInvoiceStatus() +
+            "\nPayment Type: " + PAYMENT_TYPE ;
+            
         }
         else
         {
-            System.out.println("==========INVOICE==========");
+            return "==========INVOICE==========\n" +
+            "ID : " + super.getId() +
+            "\nFood: " + super.getFood().getName() +
+            "\nDate: " + timeNow +
+            "\nPromo: " + promo.getCode() +
+            "\nCustomer: " + super.getCustomer().getName() +
+            "\nTotal Price: " + getTotalPrice() +
+            "\nStatus: " + super.getInvoiceStatus() +
+            "\nPayment Type: " + PAYMENT_TYPE ;
+           /* System.out.println("==========INVOICE==========");
             System.out.println("ID: " + super.getId());
             System.out.println("Food: " + super.getFood().getName());
             System.out.println("Date: " + super.getDate());
@@ -84,7 +104,7 @@ public class CashlessInvoice extends Invoice
             System.out.println("Customer: " + super.getCustomer().getName());
             System.out.println("Total Price: " + getTotalPrice());
             System.out.println("Status: " + super.getInvoiceStatus());
-            System.out.println("Payment Type: " + PAYMENT_TYPE);
+            System.out.println("Payment Type: " + PAYMENT_TYPE);*/
         }
     }   
 }

@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * This class contains any information for the transaction invoice for each food
  *
@@ -11,7 +11,7 @@ public abstract class Invoice
     // instance variables - replace the example below with your own
     private int id;
     private Food food;
-    private String date;
+    private Calendar date;
     protected int totalPrice;
     private Customer customer;
    // private PaymentType paymentType;
@@ -25,7 +25,7 @@ public abstract class Invoice
      * @param customer is to hold the customer object in the current invoice
      * @param totalPrice is to hold the value of total price of the current invoice
      */
-    public Invoice(int id, Food food, String date, Customer customer, 
+    public Invoice(int id, Food food, Customer customer, 
     InvoiceStatus invoiceStatus)
     {
         this.id = id;
@@ -33,6 +33,7 @@ public abstract class Invoice
         this.date = date;
         this.customer = customer;
         this.invoiceStatus = invoiceStatus;
+        this.date = new GregorianCalendar();
     }
 
     /**
@@ -57,7 +58,7 @@ public abstract class Invoice
      * this is the getter of invoice's date
      * @return date of the invoice
      */
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -99,9 +100,14 @@ public abstract class Invoice
      * this is the setter of the invoice's date
      * @param date is date of the invoice
      */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         this.date = date;
+    }
+    
+    public void setDate(int year, int month, int dayOfMonth)
+    {
+        this.date = new GregorianCalendar(year, month-1, dayOfMonth);
     }
     
     /**
@@ -123,7 +129,7 @@ public abstract class Invoice
     /**
      * this method is to print any data in this class
      */
-    public abstract void printData();
+    public abstract String toString();
 
     
 

@@ -58,6 +58,7 @@ import java.text.SimpleDateFormat;
             setEmail(email);
             setPassword(password);
             this.password = password;
+            this.joinDate = new GregorianCalendar();
         }
     
     /**
@@ -167,7 +168,7 @@ import java.text.SimpleDateFormat;
      */
     public void setJoinDate(Calendar joinDate)
     {
-        this.joinDate = this.joinDate;
+        this.joinDate = joinDate;
     }
     
     public void setJoinDate(int year, int month, int dayOfMonth)

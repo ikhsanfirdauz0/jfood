@@ -1,4 +1,10 @@
-
+import java.util.*;
+import java.util.Date;
+import java.util.Calendar;  
+import java.lang.Object;
+import java.text.Format;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 /**
  * Write a description of class CashInvoice here.
  *
@@ -14,20 +20,20 @@ public class CashInvoice extends Invoice
     /**
      * Constructor for objects of class CashInvoice
      */
-    public CashInvoice(int id, Food food, String date, Customer customer,
+    public CashInvoice(int id, Food food, Customer customer,
     InvoiceStatus invoiceStatus)
     {
-        super(id, food, date, customer, invoiceStatus);
+        super(id, food, customer, invoiceStatus);
     }
 
-    public CashInvoice(int id, Food food, String date, Customer customer,
+    public CashInvoice(int id, Food food, Customer customer,
     InvoiceStatus invoiceStatus, int deliveryFee)
     {
-        super(id, food, date, customer, invoiceStatus);
+        super(id, food, customer, invoiceStatus);
         this.deliveryFee = deliveryFee;
     }
     
-    
+    @Override
     public PaymentType getPaymentType()
     {
         return PAYMENT_TYPE;
@@ -56,8 +62,21 @@ public class CashInvoice extends Invoice
         
     }
     
-    public void printData()
+    public String toString()
     {
+        String timeNow = "";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        timeNow = sdf.format(super.getDate().getTime());
+            return "==========INVOICE==========\n" +
+            "ID : " + super.getId() +
+            "\nFood: " + super.getFood().getName() +
+            "\nDate: " + timeNow +
+            "\nCustomer: " + super.getCustomer().getName() +
+            "\nTotal Delivery Fee: " + deliveryFee +
+            "\nTotal Price: " + super.getTotalPrice() +
+            "\nStatus: " + super.getInvoiceStatus() +
+            "\nPayment Type: " + PAYMENT_TYPE ;
+            /*
             System.out.println("==========INVOICE==========");
             System.out.println("ID: " + super.getId());
             System.out.println("Food: " + super.getFood().getName());
@@ -67,7 +86,7 @@ public class CashInvoice extends Invoice
             System.out.println("Total Price: " + getTotalPrice());
             System.out.println("Status: " + super.getInvoiceStatus());
             System.out.println("Payment Type: " + PAYMENT_TYPE);
-        
+        */
     }
         
 }

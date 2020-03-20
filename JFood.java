@@ -41,6 +41,13 @@ public class JFood
 
         System.out.println(pelanggan2.toString());
         System.out.println(pelanggan3.toString());
+       // int id, Food food, Customer customer,
+    //InvoiceStatus invoiceStatus
+        Invoice einvoice = new CashlessInvoice(1, makanan1, pelanggan1, InvoiceStatus.Finished);
+        Invoice invoice = new CashInvoice(2, makanan1, pelanggan1, InvoiceStatus.Finished);
+        
+        System.out.println(einvoice.toString());
+        System.out.println(invoice.toString());
         
         //  Invoice objCashless1 = new CashlessInvoice(1, makanan1, "12-Maret-2020", pelanggan1, InvoiceStatus.Ongoing);
      //   Invoice objCashless2 = new CashlessInvoice(2, makanan1, "12-Maret-2020", pelanggan1, InvoiceStatus.Ongoing, objPromo1);
