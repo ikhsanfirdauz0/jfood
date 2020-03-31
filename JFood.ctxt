@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=JFood
-comment0.text=\r\n\ this\ class\ contains\ main\ of\ the\ whole\ program\ (driver\ program)\r\n\r\n\ @author\ Ikhsan\ Firdauz\r\n\ @version\ 1.0\r\n\ @since\ 27\ -\ 2\ -\ 2020\r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-comment1.text=\r\n\ this\ is\ the\ main\ program\r\n
-numComments=2
