@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class DatabaseCustomer here.
@@ -8,32 +9,49 @@
 public class DatabaseCustomer
 {
     // instance variables - replace the example below with your own
-    private static String[] listCustomer;
+    private static ArrayList<Customer> CUSTOMER_DATABASE;
+    private static int lastId;
 
-    /**
-     * Constructor for objects of class DatabaseCustomer
-     */
-    
+    public static ArrayList<Customer> getDatabaseCustomer()
+    {
+        return CUSTOMER_DATABASE;
+    }
+
+    public static int getLastId()
+    {
+        return lastId;
+    }
+
+    public static Customer getCustomerById(int id)
+    {
+        for (Customer customer : CUSTOMER_DATABASE)
+        {
+            if (customer.getId() == id)
+            {
+                return customer;
+            }
+        }
+        return null;
+    }
 
     public static boolean addCustomer(Customer customer)
     {
-        // put your code here
+        CUSTOMER_DATABASE.add(customer);
+        lastId = customer.getId();
         return true;
     }
     
-    public static boolean removeCustomer(Customer customer)
+    public static boolean removeCustomer(int id)
     {
-        return true;
+        for(Customer customer : CUSTOMER_DATABASE)
+        {
+            if(customer.getId() == id)
+            {
+                CUSTOMER_DATABASE.remove(customer);
+                return true;
+            }
+        }
+        return false;
     }
-    
-    public static Customer getCustomer()
-    {
-        return null;
-    }
-    
-    public static String[] getListCustomer()
-    {
-        return listCustomer;
-    }
-    
+
 }

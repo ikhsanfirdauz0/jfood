@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * this class contain the database of Food
@@ -9,47 +10,76 @@
 public class DatabaseFood
 {
     // instance variables - replace the example below with your own
-    private static String[] listFood;
+    private static ArrayList<Food> FOOD_DATABASE;
+    private static int lastId = 0;
 
-    /**
-     * Constructor for objects of class DatabaseFood
-     */
-    
-
-    /**
-     * this method is to add food
-     * @param food is object of Food class that want to be removed
-     */
-    public static boolean addFood(Food food)
+    public static ArrayList<Food> getFoodDatabase()
     {
-        return true;
+        return FOOD_DATABASE;
     }
 
-    /**
-     * this method is to remove food
-     * @param food is the object of Food class that want to be removed
-     */
-    public static boolean removeFood(Food food)
+    public static int getLastId()
     {
-        return true;
+        return lastId;
     }
-    
-    /**
-     * this method is to get --
-     * @return --
-     */
-    public static Food getFood()
+
+    public Food getFoodById(int id)
     {
+        for (Food foods : FOOD_DATABASE)
+        {
+            if (foods.getId() == id)
+            {
+                return foods;
+            }
+        }
         return null;
     }
-    
-    /**
-     * this method is to display the list of food available
-     * @return the food list
-     */
-    public static String[] getListFood()
+
+    public static ArrayList<Food> getFoodBySeller(int sellerId)
     {
-        return listFood;
+        ArrayList<Food> foodList = new ArrayList<Food>();
+        for (Food foods : FOOD_DATABASE)
+        {
+            if(foods.getSeller().getId() == sellerId)
+            {
+                foodList.add(foods);
+            }
+            return foodList;
+        }
+        return null;
     }
-    
+
+    public static ArrayList<Food> getFoodByCategory(FoodCategory foodCategory)
+    {
+        ArrayList<Food> foodList = new ArrayList<Food>();
+        for (Food foods : FOOD_DATABASE)
+        {
+            if(foods.getCategory() == foodCategory)
+            {
+                foodList.add(foods);
+            }
+            return foodList;
+        }
+        return null;
+    }
+
+    public static boolean addFood(Food food)
+    {
+        FOOD_DATABASE.add(food);
+        lastId = food.getId();
+        return true;
+    }
+
+    public static boolean removeFood(int id)
+    {
+        for(Food foods : FOOD_DATABASE)
+        {
+            if(foods.getId() == id)
+            {
+                FOOD_DATABASE.remove(foods);
+                return true;
+            }
+        }
+        return true;
+    }
 } 

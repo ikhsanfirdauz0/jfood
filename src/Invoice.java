@@ -10,7 +10,7 @@ public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     private int id;
-    private Food food;
+    private ArrayList<Food> foods;
     private Calendar date;
     protected int totalPrice;
     private Customer customer;
@@ -25,15 +25,15 @@ public abstract class Invoice
      * @param customer is to hold the customer object in the current invoice
      * @param totalPrice is to hold the value of total price of the current invoice
      */
-    public Invoice(int id, Food food, Customer customer, 
-    InvoiceStatus invoiceStatus)
+    public Invoice(int id, ArrayList<Food> foods, Customer customer)
     {
         this.id = id;
-        this.food = food;
-        this.date = date;
+        this.foods = foods;
+       // this.date = date;
         this.customer = customer;
-        this.invoiceStatus = invoiceStatus;
+      //  this.invoiceStatus = invoiceStatus;
         this.date = new GregorianCalendar();
+        this.invoiceStatus = invoiceStatus.Ongoing;
     }
 
     /**
@@ -49,9 +49,9 @@ public abstract class Invoice
      * this is the getter of invoice's food id
      * @return food id of the invoice
      */
-    public Food getFood()
+    public ArrayList<Food> getFoods()
     {
-        return food;
+        return foods;
     }
     
     /**
@@ -91,10 +91,6 @@ public abstract class Invoice
      * this is the setter of invoice's food id
      * @param idFood is the food's id in the current invoice
      */
-    public void setIdFood(Food food)
-    {
-        this.food = food;
-    }
     
     /**
      * this is the setter of the invoice's date
@@ -108,6 +104,11 @@ public abstract class Invoice
     public void setDate(int year, int month, int dayOfMonth)
     {
         this.date = new GregorianCalendar(year, month-1, dayOfMonth);
+    }
+
+    public void setFoods(ArrayList<Food> foods)
+    {
+        this.foods = foods;
     }
     
     /**

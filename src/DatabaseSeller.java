@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * Write a description of class DatabaseSeller here.
  *
@@ -8,37 +8,50 @@
 public class DatabaseSeller
 {
     // instance variables - replace the example below with your own
-    private static String[] listSeller;
+    private static ArrayList<Seller> SELLER_DATABASE;
+    private static int lastId = 0;
 
-    /**
-     * Constructor for objects of class DatabaseSeller
-     */
-    
+    public ArrayList<Seller> getSellerDatabase()
+    {
+        return SELLER_DATABASE;
+    }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public static boolean addSeller(Seller seller)
+    public static int getLastId()
     {
-        return true;
+        return lastId;
     }
-    
-    public static boolean removeSeller(Seller seller)
+
+    public static Seller getSellerById(int id)
     {
-        return true;
-    }
-    
-    public static Seller getSeller()
-    {
+        for (Seller seller : SELLER_DATABASE)
+        {
+            if (seller.getId() == id)
+            {
+                return seller;
+            }
+        }
         return null;
     }
-    
-    public static String[] getListSeller()
+
+    public static boolean addSeller(Seller seller)
     {
-        return listSeller;
+        SELLER_DATABASE.add(seller);
+        lastId = seller.getId();
+        return true;
     }
+
+    public static boolean removeSeller(int id)
+    {
+        for (Seller seller : SELLER_DATABASE)
+        {
+            if (seller.getId() == id)
+            {
+                SELLER_DATABASE.remove(seller);
+                return true;
+            }
+        }
+        return false;
+    }
+
     
 }
