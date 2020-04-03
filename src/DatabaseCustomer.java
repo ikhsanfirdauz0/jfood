@@ -36,6 +36,13 @@ public class DatabaseCustomer
 
     public static boolean addCustomer(Customer customer)
     {
+        for (Customer iterasi : CUSTOMER_DATABASE)
+        {
+            if(iterasi.getEmail().equals(customer.getEmail()))
+            {
+                return false;
+            }
+        }
         CUSTOMER_DATABASE.add(customer);
         lastId = customer.getId();
         return true;

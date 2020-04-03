@@ -39,7 +39,7 @@ public class DatabasePromo
     {
         for(Promo promo : PROMO_DATABASE)
         {
-            if(promo.getCode() == code)
+            if(promo.getCode().equals(code))
             {
                 return promo;
             }
@@ -49,6 +49,13 @@ public class DatabasePromo
 
     public static boolean addPromo (Promo promo)
     {
+        for (Promo iterasi : PROMO_DATABASE)
+        {
+            if(iterasi.getCode().equals(promo.getCode()))
+            {
+                return false;
+            }
+        }
         PROMO_DATABASE.add(promo);
         lastId = promo.getId();
         return true;
