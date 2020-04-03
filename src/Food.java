@@ -128,9 +128,9 @@ public class Food
      */
     public String toString()
     {
-        String s = "Id = " + getId() + " Nama = " + getName() +
-                " Seller = " + getSeller() + " City = " + seller.getLocation().getCity() +
-                " Price = " + getPrice() + " Category = " + getCategory();
+        String s = "Id = " + getId() + "\nNama = " + getName() +
+                "\nSeller = " + getSeller().getName() + "\nCity = " + seller.getLocation().getCity() +
+                "\nPrice = " + getPrice() + "\nCategory = " + getCategory();
         return s;
     }
     

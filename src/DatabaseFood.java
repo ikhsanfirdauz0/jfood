@@ -23,7 +23,7 @@ public class DatabaseFood
         return lastId;
     }
 
-    public Food getFoodById(int id)
+    public static Food getFoodById(int id)
     {
         for (Food foods : FOOD_DATABASE)
         {
@@ -44,9 +44,12 @@ public class DatabaseFood
             {
                 foodList.add(foods);
             }
-            return foodList;
+            else
+            {
+                foodList = null;
+            }
         }
-        return null;
+        return foodList;
     }
 
     public static ArrayList<Food> getFoodByCategory(FoodCategory foodCategory)
@@ -61,6 +64,7 @@ public class DatabaseFood
         }
         return foodList;
     }
+
     public static boolean addFood(Food food)
     {
         FOOD_DATABASE.add(food);

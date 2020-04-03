@@ -84,14 +84,7 @@ public abstract class Invoice
     {
         return invoiceStatus;
     }
-    
 
-    
-    /**
-     * this is the setter of invoice's food id
-     * @param idFood is the food's id in the current invoice
-     */
-    
     /**
      * this is the setter of the invoice's date
      * @param date is date of the invoice

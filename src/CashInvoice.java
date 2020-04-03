@@ -48,6 +48,16 @@ public class CashInvoice extends Invoice
     
     public void setTotalPrice()
     {
+        super.totalPrice = 0;
+        for(Food foodList : super.getFoods())
+        {
+            super.totalPrice = super.totalPrice + foodList.getPrice();
+        }
+        if(deliveryFee > 0)
+        {
+            super.totalPrice = super.totalPrice + deliveryFee;
+        }
+
      /*   if(deliveryFee > 0)
         {
             super.totalPrice = getFood().getPrice() + deliveryFee;
@@ -61,16 +71,23 @@ public class CashInvoice extends Invoice
     
     public String toString()
     {
+        //inisiasi total harga
         setTotalPrice();
+
+        //inisiasi waktu sekarang
         String timeNow = "";
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         timeNow = sdf.format(super.getDate().getTime());
+
+        //String manipulation untuk list makanan yang dibeli
         String foods = "";
         for (Food foodList : getFoods())
         {
             foods = foods + foodList.getName() + ", ";
         }
         foods = foods.substring(0, foods.length() - 2);
+
+        //return value
         return "==========INVOICE==========\n" +
             "ID : " + super.getId() +
             "\nFoods: " + foods +
@@ -80,17 +97,6 @@ public class CashInvoice extends Invoice
             "\nTotal Price: " + super.getTotalPrice() +
             "\nStatus: " + super.getInvoiceStatus() +
             "\nPayment Type: " + PAYMENT_TYPE ;
-            /*
-            System.out.println("==========INVOICE==========");
-            System.out.println("ID: " + super.getId());
-            System.out.println("Food: " + super.getFood().getName());
-            System.out.println("Date: " + super.getDate());
-            System.out.println("Customer: " + super.getCustomer().getName());
-            System.out.println("Delivery Fee: " + deliveryFee);
-            System.out.println("Total Price: " + getTotalPrice());
-            System.out.println("Status: " + super.getInvoiceStatus());
-            System.out.println("Payment Type: " + PAYMENT_TYPE);
-        */
     }
         
 }

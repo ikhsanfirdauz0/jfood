@@ -7,7 +7,7 @@
  */
 public enum InvoiceStatus
 {
-    Ongoing("Onngoing"),
+    Ongoing("Ongoing"),
     Finished("Finished"),
     Cancelled("Cancelled");
     

@@ -115,6 +115,6 @@ public class Seller
     public String toString()
     {
         return "Id = " + getId() + "\nNama = " + getName() +
-        "\nPhoneNumber = " + getPhoneNumber() + "\nLocation = " + getLocation();
+        "\nPhoneNumber = " + getPhoneNumber() + "\nLocation = " + getLocation().getProvince();
     }
 }

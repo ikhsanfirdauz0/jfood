@@ -1,4 +1,5 @@
-import java.util.*;  
+import javax.xml.crypto.Data;
+import java.util.*;
 /**
  * this class contains main of the whole program (driver program)
  *
@@ -14,6 +15,7 @@ public class JFood
      */
     public static void main (String[] args)
     {
+
 
         Location objekLokasi1 = new Location("Depok", "Jawa", "Ada UI");
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId()+1, "Tenonet",
@@ -33,8 +35,41 @@ public class JFood
                 "Katsu Don", DatabaseSeller.getSellerById(1), 20000, FoodCategory.Japanese));
 
         System.out.println(DatabaseFood.getFoodByCategory(FoodCategory.Beverages));
+       /* for(Food food : DatabaseFood.getFoodByCategory(FoodCategory.Beverages))
+        {
+            System.out.println(food);
+            System.out.println();
+        }*/
+
+        DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId()+1,
+                "JUMATMANTAP", 10000, 10000, false));
+        DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId()+1,
+                "JUMATMANTAP", 5000, 2000, true));
+
+        System.out.println(DatabasePromo.getPromoDatabase());
+
+        //DatabaseFood
+
+        Invoice objekInvoice1 = new CashlessInvoice(1, DatabaseFood.getFoodDatabase(),
+                DatabaseCustomer.getCustomerById(1),DatabasePromo.getPromoById(1));
+
+        System.out.println(objekInvoice1.toString());
+        System.out.println(DatabasePromo.getPromoDatabase());
+
+        ArrayList<Food> list1 = new ArrayList<Food>();
+        list1.add(DatabaseFood.getFoodById(1));
+
+        ArrayList<Food> list2 = new ArrayList<Food>();
+        list2.add(DatabaseFood.getFoodById(2));
+        list2.add(DatabaseFood.getFoodById(3));
+
+      //  DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId()+1, list1, DatabaseCustomer.getCustomerById(1), 1000));
+        //CashInvoice.setTotalPrice(DatabaseInvoice.getInvoiceByCustomer(1));
 
 
+
+
+       //=================================BLOCK TEST LAMA========================================================
 
       /*  Location lokasi1 = new Location("Tangerang", "Banten", "banyak makanan");                   //membuat objek lokasi
         Seller penjual1 = new Seller(1, "Ikhsan Firdauz", "example@gmail.com", "xxx", lokasi1);     //membuat objek penjual
