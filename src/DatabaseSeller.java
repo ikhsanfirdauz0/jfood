@@ -8,7 +8,7 @@ import java.util.*;
 public class DatabaseSeller
 {
     // instance variables - replace the example below with your own
-    private static ArrayList<Seller> SELLER_DATABASE;
+    private static ArrayList<Seller> SELLER_DATABASE = new ArrayList<Seller>();
     private static int lastId = 0;
 
     public ArrayList<Seller> getSellerDatabase()

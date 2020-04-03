@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DatabaseFood
 {
     // instance variables - replace the example below with your own
-    private static ArrayList<Food> FOOD_DATABASE;
+    private static ArrayList<Food> FOOD_DATABASE = new ArrayList<Food>();
     private static int lastId = 0;
 
     public static ArrayList<Food> getFoodDatabase()
@@ -54,15 +54,13 @@ public class DatabaseFood
         ArrayList<Food> foodList = new ArrayList<Food>();
         for (Food foods : FOOD_DATABASE)
         {
-            if(foods.getCategory() == foodCategory)
+            if(foods.getCategory().equals(foodCategory))
             {
                 foodList.add(foods);
             }
-            return foodList;
         }
-        return null;
+        return foodList;
     }
-
     public static boolean addFood(Food food)
     {
         FOOD_DATABASE.add(food);

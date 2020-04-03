@@ -66,7 +66,7 @@ public class CashInvoice extends Invoice
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
         timeNow = sdf.format(super.getDate().getTime());
         String foods = "";
-        for (Food foodList : getFood())
+        for (Food foodList : getFoods())
         {
             foods = foods + foodList.getName() + ", ";
         }

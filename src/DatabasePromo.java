@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DatabasePromo
 {
     // instance variables - replace the example below with your own
-    private static ArrayList<Promo> PROMO_DATABASE;
+    private static ArrayList<Promo> PROMO_DATABASE = new ArrayList<Promo>();
     private static int lastId;
 
     public static ArrayList<Promo> getPromoDatabase()

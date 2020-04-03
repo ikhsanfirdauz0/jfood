@@ -7,7 +7,7 @@
  */
 public enum FoodCategory
 {
-    Beverages("123"),
+    Beverages("Beverages"),
     Coffee("Coffee"),
     Western("Western"),
     Snacks("Snacks"),
