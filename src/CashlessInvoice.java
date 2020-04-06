@@ -88,27 +88,27 @@ public class CashlessInvoice extends Invoice
         if(promo == null || promo.getActive() == false || super.totalPrice  < getPromo().getMinPrice())
         {
             return "==========INVOICE==========\n" +
-                    "ID : " + super.getId() +
-                    "\nFood" + foods +
+                    "ID: " + super.getId() +
+                    "\nFood: " + foods +
                     "\nDate: " + timeNow +
                     "\nCustomer: " + super.getCustomer().getName() +
                     "\nTotal Price: " + getTotalPrice() +
                     "\nStatus: " + super.getInvoiceStatus() +
-                    "\nPayment Type: " + PAYMENT_TYPE ;
+                    "\nPayment Type: " + PAYMENT_TYPE +"\n";
 
         }
         //jika kondisi promo dipenuhi maka:
         else
         {
             return "==========INVOICE==========\n" +
-                    "ID : " + super.getId() +
+                    "ID: " + super.getId() +
                     "\nFood: " + foods +
                     "\nDate: " + timeNow +
                     "\nPromo: " + promo.getCode() +
                     "\nCustomer: " + super.getCustomer().getName() +
                     "\nTotal Price: " + getTotalPrice() +
                     "\nStatus: " + super.getInvoiceStatus() +
-                    "\nPayment Type: " + PAYMENT_TYPE ;
+                    "\nPayment Type: " + PAYMENT_TYPE +"\n";
         }
 
     }   

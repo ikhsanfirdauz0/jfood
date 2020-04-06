@@ -10,7 +10,7 @@ public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     private int id;
-    private ArrayList<Food> foods;
+    private ArrayList<Food> foods = new ArrayList<>();
     private Calendar date;
     protected int totalPrice;
     private Customer customer;
@@ -33,7 +33,7 @@ public abstract class Invoice
         this.customer = customer;
       //  this.invoiceStatus = invoiceStatus;
         this.date = new GregorianCalendar();
-        this.invoiceStatus = invoiceStatus.Ongoing;
+        this.invoiceStatus = InvoiceStatus.Ongoing;
     }
 
     /**

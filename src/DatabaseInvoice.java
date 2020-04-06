@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class DatabaseInvoice {
 
-    private static ArrayList<Invoice> INVOICE_DATABASE;
+    private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<>();
     private static int lastId = 0;
 
-    public static ArrayList<Invoice>  getDatabaseCustomer()
+    public static ArrayList<Invoice>  getDatabaseInvoice()
     {
         return INVOICE_DATABASE;
     }
@@ -48,7 +48,7 @@ public class DatabaseInvoice {
     {
         for (Invoice iterasi : INVOICE_DATABASE)
         {
-            if(iterasi.getInvoiceStatus().equals(InvoiceStatus.Ongoing))
+            if(invoice.getCustomer().equals(iterasi.getCustomer()) && invoice.getInvoiceStatus() == InvoiceStatus.Ongoing)
             {
                 return false;
             }
@@ -83,6 +83,5 @@ public class DatabaseInvoice {
         }
         return false;
     }
-
 
 }

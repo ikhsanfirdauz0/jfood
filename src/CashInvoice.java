@@ -96,7 +96,7 @@ public class CashInvoice extends Invoice
             "\nTotal Delivery Fee: " + deliveryFee +
             "\nTotal Price: " + super.getTotalPrice() +
             "\nStatus: " + super.getInvoiceStatus() +
-            "\nPayment Type: " + PAYMENT_TYPE ;
+            "\nPayment Type: " + PAYMENT_TYPE + "\n";
     }
         
 }
