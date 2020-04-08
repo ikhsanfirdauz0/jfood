@@ -64,7 +64,7 @@ public class DatabaseInvoice {
         {
             if(invoice.getId() == id && invoice.getInvoiceStatus().equals(InvoiceStatus.Ongoing))
             {
-                invoice.setInvoiceStatus(InvoiceStatus.Finished);
+                invoice.setInvoiceStatus(invoiceStatus);
                 return true;
             }
         }

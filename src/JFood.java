@@ -84,6 +84,7 @@ public class JFood
                 list2, DatabaseCustomer.getCustomerById(2), DatabasePromo.getPromoById(1)));
 
         DatabasePromo.activePromo(1);
+
         for (Invoice iterasi : DatabaseInvoice.getDatabaseInvoice())
         {
             iterasi.setTotalPrice();
