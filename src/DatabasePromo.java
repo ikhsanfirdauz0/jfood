@@ -11,7 +11,7 @@ public class DatabasePromo
 {
     // instance variables - replace the example below with your own
     private static ArrayList<Promo> PROMO_DATABASE = new ArrayList<Promo>();
-    private static int lastId;
+    private static int lastId = 0;
 
     public static ArrayList<Promo> getPromoDatabase()
     {
@@ -23,7 +23,7 @@ public class DatabasePromo
         return lastId;
     }
 
-    public static Promo getPromoById(int id)
+    public static Promo getPromoById(int id) throws PromoNotFoundException
     {
         for(Promo promo : PROMO_DATABASE)
         {
@@ -32,7 +32,7 @@ public class DatabasePromo
                 return promo;
             }
         }
-        return null;
+        throw new PromoNotFoundException(id);
     }
 
     public static Promo getPromoByCode(String code)
@@ -47,13 +47,13 @@ public class DatabasePromo
         return null;
     }
 
-    public static boolean addPromo (Promo promo)
+    public static boolean addPromo (Promo promo) throws PromoCodeAlreadyExistsException
     {
         for (Promo iterasi : PROMO_DATABASE)
         {
             if(iterasi.getCode().equals(promo.getCode()))
             {
-                return false;
+                throw new PromoCodeAlreadyExistsException(promo);
             }
         }
         PROMO_DATABASE.add(promo);
@@ -85,7 +85,7 @@ public class DatabasePromo
         return true;
     }
 
-    public static boolean removePromo (int id)
+    public static boolean removePromo (int id) throws PromoNotFoundException
     {
         for (Promo promo : PROMO_DATABASE)
         {
@@ -95,6 +95,6 @@ public class DatabasePromo
                 return true;
             }
         }
-        return false;
+        throw new PromoNotFoundException(id);
     }
 }

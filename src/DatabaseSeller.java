@@ -11,7 +11,7 @@ public class DatabaseSeller
     private static ArrayList<Seller> SELLER_DATABASE = new ArrayList<Seller>();
     private static int lastId = 0;
 
-    public ArrayList<Seller> getSellerDatabase()
+    public static ArrayList<Seller> getSellerDatabase()
     {
         return SELLER_DATABASE;
     }
@@ -21,7 +21,7 @@ public class DatabaseSeller
         return lastId;
     }
 
-    public static Seller getSellerById(int id)
+    public static Seller getSellerById(int id) throws SellerNotFoundException
     {
         for (Seller seller : SELLER_DATABASE)
         {
@@ -30,7 +30,7 @@ public class DatabaseSeller
                 return seller;
             }
         }
-        return null;
+        throw new SellerNotFoundException(id);
     }
 
     public static boolean addSeller(Seller seller)
@@ -40,7 +40,7 @@ public class DatabaseSeller
         return true;
     }
 
-    public static boolean removeSeller(int id)
+    public static boolean removeSeller(int id) throws SellerNotFoundException
     {
         for (Seller seller : SELLER_DATABASE)
         {
@@ -50,7 +50,7 @@ public class DatabaseSeller
                 return true;
             }
         }
-        return false;
+        throw new SellerNotFoundException(id);
     }
 
     
