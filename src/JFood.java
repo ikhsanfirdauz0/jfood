@@ -54,8 +54,8 @@ public class JFood
         list2.add(DatabaseFood.getFoodById(2));
         list2.add(DatabaseFood.getFoodById(3));
 
-        DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId()+1,
-                list1, DatabaseCustomer.getCustomerById(1), DatabasePromo.getPromoById(1)));
+        DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId()+1,
+                list1, DatabaseCustomer.getCustomerById(1), 5000));
 
         for (Invoice iterasi : DatabaseInvoice.getInvoiceByCustomer(1))
         {
