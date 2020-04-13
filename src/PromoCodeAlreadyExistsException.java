@@ -4,7 +4,7 @@ public class PromoCodeAlreadyExistsException extends Exception {
 
     public PromoCodeAlreadyExistsException(Promo promo_input)
     {
-        super (" Promo Code:");
+        super ("Promo Code: ");
         this.promo_error = promo_input;
     }
 

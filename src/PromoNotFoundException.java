@@ -4,7 +4,7 @@ public class PromoNotFoundException extends Exception {
 
     public PromoNotFoundException (int promo_input)
     {
-        super("Promo ID : ");
+        super("Promo ID: ");
         this.promo_error = promo_input;
     }
 
