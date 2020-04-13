@@ -1,7 +1,6 @@
-public class PriceCalculator implements Runnable {
-
+public class PriceCalculator implements Runnable
+{
     Invoice invoice;
-
     public PriceCalculator(Invoice invoice)
     {
         this.invoice = invoice;

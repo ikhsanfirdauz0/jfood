@@ -1,5 +1,7 @@
 import javax.xml.crypto.Data;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+
 /**
  * this class contains main of the whole program (driver program)
  *
@@ -245,6 +247,10 @@ public class JFood
         {
             System.out.println(e2.getMessage());
         }
+        catch(OngoinInvoiceAlreadyExistException e3)
+        {
+            System.out.println(e3.getMessage());
+        }
 
         try
         {
@@ -256,6 +262,10 @@ public class JFood
         {
             System.out.println(e1.getMessage());
         }
+        catch(OngoinInvoiceAlreadyExistException e3)
+        {
+            System.out.println(e3.getMessage());
+        }
 
         try
         {
@@ -266,21 +276,30 @@ public class JFood
         {
             System.out.println(e1.getMessage());
         }
+        catch(OngoinInvoiceAlreadyExistException e3)
+        {
+            System.out.println(e3.getMessage());
+        }
 
 
         System.out.println("=========YANG MASUK DATABASE INVOICE=========");
-        for(Invoice invoices : DatabaseInvoice.getDatabaseInvoice())
-        {
-            System.out.println(invoices);
-            System.out.println();
-        }
+//        for(Invoice invoices : DatabaseInvoice.getDatabaseInvoice())
+//        {
+//            System.out.println(invoices);
+//            System.out.println();
+//        }
 
         for(Invoice invoices : DatabaseInvoice.getDatabaseInvoice())
         {
             new Thread(new PriceCalculator (invoices)).start();
         }
 
-        System.out.println("\nList invoice: ");
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         for(Invoice invoices : DatabaseInvoice.getDatabaseInvoice())
         {
             invoices.setTotalPrice();
@@ -289,6 +308,51 @@ public class JFood
         }
 
 
+        try
+        {
+            DatabaseInvoice.removeInvoice(30);
+        }
+        catch (InvoiceNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        try
+        {
+            DatabaseInvoice.getInvoiceById(30);
+        }
+        catch (InvoiceNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        try
+        {
+            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1,
+                    list2, DatabaseCustomer.getCustomerById(1), 10000));
+        }
+        catch (CustomerNotFoundException e1)
+        {
+            System.out.println(e1.getMessage());
+        }
+        catch (OngoinInvoiceAlreadyExistException e2)
+        {
+            System.out.println(e2.getMessage());
+        }
+
+        try
+        {
+            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1,
+                    list2, DatabaseCustomer.getCustomerById(1), 10000));
+        }
+        catch (CustomerNotFoundException e1)
+        {
+            System.out.println(e1.getMessage());
+        }
+        catch (OngoinInvoiceAlreadyExistException e2)
+        {
+            System.out.println(e2.getMessage());
+        }
 
 
        //=================================BLOCK TEST LAMA========================================================
@@ -387,7 +451,6 @@ public class JFood
 
 */
     }
-
 
 
 }
