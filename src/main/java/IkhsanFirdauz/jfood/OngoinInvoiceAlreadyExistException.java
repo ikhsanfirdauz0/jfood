@@ -12,6 +12,7 @@ public class OngoinInvoiceAlreadyExistException extends Exception
     @Override
     public String getMessage()
     {
-        return super.getMessage() + " already exist";
+        return super.getMessage() + " already exist " + "with " +
+                "Id: " + invoice_error.getId() + ", Customer: " + invoice_error.getCustomer().getName();
     }
 }
