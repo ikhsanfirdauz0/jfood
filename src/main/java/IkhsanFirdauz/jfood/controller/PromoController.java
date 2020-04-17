@@ -7,7 +7,8 @@ import java.util.Locale;
 
 @RequestMapping("/promo")
 @RestController
-public class PromoController {
+public class PromoController
+{
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ArrayList<Promo> getAllPromo()
@@ -30,13 +31,69 @@ public class PromoController {
                           @RequestParam(value="active")  boolean active)
     {
         Promo promo = new Promo(DatabasePromo.getLastId() + 1, code, diskon, minPrice, active);
-        try {
+        try
+        {
             DatabasePromo.addPromo(promo);
-        } catch (PromoCodeAlreadyExistsException e) {
+        }
+        catch (PromoCodeAlreadyExistsException e)
+        {
             e.getMessage();
             return null;
         }
         return promo;
     }
+
+    @RequestMapping(value = "/activate/{id}", method = RequestMethod.POST)
+    public Promo activatePromo(@PathVariable int id)
+    {
+        Promo promo = null;
+
+        try
+        {
+            DatabasePromo.activePromo(id);
+        }
+        catch (Exception e)
+        {
+            e.getMessage();
+            return null;
+        }
+
+        try
+        {
+            promo = DatabasePromo.getPromoById(id);
+        }
+        catch (PromoNotFoundException e)
+        {
+            e.getMessage();
+        }
+        return promo;
+    }
+
+    @RequestMapping(value = "/deactivate/{id}", method = RequestMethod.POST)
+    public Promo deactivatePromo(@PathVariable int id)
+    {
+        Promo promo = null;
+
+        try
+        {
+            DatabasePromo.deactivatePromo(id);
+        }
+        catch (Exception e)
+        {
+            e.getMessage();
+            return null;
+        }
+
+        try
+        {
+            promo = DatabasePromo.getPromoById(id);
+        }
+        catch (PromoNotFoundException e)
+        {
+            e.getMessage();
+        }
+        return promo;
+    }
+
 
 }

@@ -7,20 +7,26 @@ import java.util.Locale;
 
 @RequestMapping("/seller")
 @RestController
-public class SellerController {
+public class SellerController
+{
 
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ArrayList<Seller> getAllSeller() {
+    public ArrayList<Seller> getAllSeller()
+    {
         return DatabaseSeller.getSellerDatabase();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Seller getSellerById(@PathVariable int id) {
+    public Seller getSellerById(@PathVariable int id)
+    {
         Seller seller = null;
-        try {
+        try
+        {
             seller = DatabaseSeller.getSellerById(id);
-        } catch (SellerNotFoundException e) {
+        }
+        catch (SellerNotFoundException e)
+        {
             e.getMessage();
             return null;
         }
@@ -37,9 +43,12 @@ public class SellerController {
     {
         Seller seller = new Seller(DatabaseSeller.getLastId() + 1, name, email,
                 phoneNumber, new Location (city, province, description));
-        try {
+        try
+        {
             DatabaseSeller.addSeller(seller);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.getMessage();
             return null;
         }

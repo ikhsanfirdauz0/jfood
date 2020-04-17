@@ -59,15 +59,6 @@ public class CashInvoice extends Invoice
             super.totalPrice = super.totalPrice + deliveryFee;
         }
 
-     /*   if(deliveryFee > 0)
-        {
-            super.totalPrice = getFood().getPrice() + deliveryFee;
-        }            
-        else 
-        {
-            super.totalPrice = getFood().getPrice();
-        }
-     */
     }
     
     public String toString()

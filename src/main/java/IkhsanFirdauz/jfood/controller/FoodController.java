@@ -7,20 +7,25 @@ import java.util.Locale;
 
 @RequestMapping("/food")
 @RestController
-public class FoodController {
-
+public class FoodController
+{
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ArrayList<Food> getAllFood() {
+    public ArrayList<Food> getAllFood()
+    {
         return DatabaseFood.getFoodDatabase();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Food getFoodById(@PathVariable int id) {
+    public Food getFoodById(@PathVariable int id)
+    {
         Food food = null;
-        try {
+        try
+        {
             food = DatabaseFood.getFoodById(id);
-        } catch (FoodNotFoundException e) {
+        }
+        catch (FoodNotFoundException e)
+        {
             e.getMessage();
             return null;
         }
@@ -30,9 +35,12 @@ public class FoodController {
     @RequestMapping(value = "/seller/{sellerId}", method = RequestMethod.GET)
     public ArrayList<Food> getFoodBySeller(@PathVariable int sellerId) {
         ArrayList<Food> food = null;
-        try {
+        try
+        {
             food = DatabaseFood.getFoodBySeller(sellerId);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.getMessage();
             return null;
         }
@@ -40,11 +48,15 @@ public class FoodController {
     }
 
     @RequestMapping(value = "/category/{category}", method = RequestMethod.GET)
-    public ArrayList<Food> getFoodByCategory(@RequestParam(value="category") FoodCategory category) {
+    public ArrayList<Food> getFoodByCategory(@PathVariable FoodCategory category)
+    {
         ArrayList<Food> food = null;
-        try {
+        try
+        {
             food = DatabaseFood.getFoodByCategory(category);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.getMessage();
             return null;
         }
@@ -58,9 +70,12 @@ public class FoodController {
                         @RequestParam(value="sellerId") int sellerId)throws SellerNotFoundException
     {
         Food food = new Food(DatabaseFood.getLastId() + 1, name, DatabaseSeller.getSellerById(sellerId), price, category);
-        try {
+        try
+        {
             DatabaseFood.addFood(food);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.getMessage();
             return null;
         }

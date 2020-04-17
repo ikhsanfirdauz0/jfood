@@ -32,7 +32,6 @@ public abstract class Invoice
         this.foods = foods;
        // this.date = date;
         this.customer = customer;
-      //  this.invoiceStatus = invoiceStatus;
         this.date = new GregorianCalendar();
         this.invoiceStatus = InvoiceStatus.Ongoing;
     }
@@ -111,11 +110,6 @@ public abstract class Invoice
      */
     public abstract void setTotalPrice();
 
-   // public void setPaymentType(PaymentType paymentType)
- //   {
-  //      this.paymentType = paymentType;
-  //  }
-    
     public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {
         this.invoiceStatus = invoiceStatus;
