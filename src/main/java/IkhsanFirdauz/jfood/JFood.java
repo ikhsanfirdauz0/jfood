@@ -22,14 +22,11 @@ public class JFood
     public static void main (String[] args)
     {
 
+        SpringApplication.run(JFood.class, args);
         Location objekLokasi1 = new Location("Depok", "Jawa", "Ada UI");
-        Location objekLokasi2 = new Location("Tangerang", "Bantem", "Ada UI");
-        Location objekLokasi3 = new Location("Jakarta", "DKI Jakarta", "Ada UI");
-
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Joko1", "joko1@gmail.com", "081234323", objekLokasi1));
-        DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Joko2", "joko2@gmail.com", "081234323", objekLokasi2));
-        DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Joko3", "joko3@gmail.com", "081234323", objekLokasi3));
 
+        //add foods
         try
         {
             DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1,
@@ -50,6 +47,25 @@ public class JFood
             System.out.println(e.getMessage());
         }
 
+    }
+        /* BLOCK TEST
+
+
+        Location objekLokasi2 = new Location("Tangerang", "Bantem", "Ada UI");
+        Location objekLokasi3 = new Location("Jakarta", "DKI Jakarta", "Ada UI");
+
+
+        DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Joko2", "joko2@gmail.com", "081234323", objekLokasi2));
+        DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Joko3", "joko3@gmail.com", "081234323", objekLokasi3));
+
+        try {
+            DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Ratna", "ratna@gmail.com", "Qwerty1234"));
+            SpringApplication.run(JFood.class, args);
+        } catch (EmailAlreadyExistException error) {
+            error.getMessage();
+        }
+
+
         try
         {
             DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1,
@@ -59,11 +75,6 @@ public class JFood
         {
             System.out.println(e.getMessage());
         }
-
-        SpringApplication.run(JFood.class, args);
-
-    }
-        /*
 
 
         ArrayList<Food> list1 = new ArrayList<Food>();

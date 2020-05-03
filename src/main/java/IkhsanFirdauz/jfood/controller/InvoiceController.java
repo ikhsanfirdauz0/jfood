@@ -6,7 +6,9 @@ import java.util.Locale;
 
 import java.util.ArrayList;
 
-@RequestMapping("/Invoice")
+
+@RequestMapping("/invoice")
+@CrossOrigin(origins = " ", allowedHeaders = "*")
 @RestController
 public class InvoiceController
 {
@@ -40,7 +42,8 @@ public class InvoiceController
     }
 
     @RequestMapping(value = "/invoiceStatus/{id}", method = RequestMethod.PUT)
-    public Invoice changeInvoiceStatus(@PathVariable int id, @PathVariable InvoiceStatus status) throws InvoiceNotFoundException
+    public Invoice changeInvoiceStatus(@RequestParam(value = "id") int id,
+                                       @RequestParam(value = "status") InvoiceStatus status) throws InvoiceNotFoundException
     {
         Invoice invoice = null;
         DatabaseInvoice.changeInvoiceStatus(id, status);
@@ -72,14 +75,27 @@ public class InvoiceController
 
 
     @RequestMapping(value = "/createCashInvoice", method = RequestMethod.POST)
-    public Invoice addCashInvoice(@RequestParam(value = "foods") ArrayList<Food> foods,
+    public Invoice addCashInvoice(@RequestParam(value = "foods") ArrayList<Integer> foods,
                                   @RequestParam(value = "customer") int customerId,
-                                  @RequestParam(value = "deliveryFee") int deliveryFee) throws CustomerNotFoundException
+                                  @RequestParam(value = "deliveryFee", defaultValue = "0") int deliveryFee) throws CustomerNotFoundException
     {
+        ArrayList<Food> dummyFoods = new ArrayList<>();
+        for (Integer i : foods)
+        {
+            try
+            {
+                dummyFoods.add(DatabaseFood.getFoodById(i));
+            }
+            catch (FoodNotFoundException e)
+            {
+                e.getMessage();
+            }
+        }
+
         Invoice invoice = new CashInvoice(DatabaseInvoice.getLastId() + 1,
-                                            foods,
+                                            dummyFoods,
                                             DatabaseCustomer.getCustomerById(customerId),
-                                            deliveryFee);;
+                                            deliveryFee);
         try
         {
             DatabaseInvoice.addInvoice(invoice);
@@ -95,12 +111,25 @@ public class InvoiceController
 
 
     @RequestMapping(value = "/createCashlessInvoice", method = RequestMethod.POST)
-    public Invoice addCashlessInvoice(@RequestParam(value = "foods") ArrayList<Food> foods,
+    public Invoice addCashlessInvoice(@RequestParam(value = "foods") ArrayList<Integer> foods,
                                   @RequestParam(value = "customer") int customerId,
-                                  @RequestParam(value = "promoCode") String promoCode) throws CustomerNotFoundException
+                                  @RequestParam(value = "promoCode", defaultValue = "") String promoCode) throws CustomerNotFoundException
     {
+        ArrayList<Food> dummyFoods = new ArrayList<>();
+        for (Integer i : foods)
+        {
+            try
+            {
+                dummyFoods.add(DatabaseFood.getFoodById(i));
+            }
+            catch (FoodNotFoundException e)
+            {
+                e.getMessage();
+            }
+        }
+
         Invoice invoice = new CashlessInvoice(DatabaseInvoice.getLastId() + 1,
-                foods,
+                dummyFoods,
                 DatabaseCustomer.getCustomerById(customerId),
                 DatabasePromo.getPromoByCode(promoCode));
         try
@@ -111,6 +140,7 @@ public class InvoiceController
         {
             e.getMessage();
         }
+        invoice.setTotalPrice();
         return invoice;
     }
 }

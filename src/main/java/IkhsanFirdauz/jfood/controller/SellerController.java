@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 @RequestMapping("/seller")
+@CrossOrigin(origins = " ", allowedHeaders = "*")
 @RestController
 public class SellerController
 {

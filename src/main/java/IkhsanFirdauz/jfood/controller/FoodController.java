@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 @RequestMapping("/food")
+@CrossOrigin(origins = " ", allowedHeaders = "*")
 @RestController
 public class FoodController
 {
