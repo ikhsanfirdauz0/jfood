@@ -2,6 +2,7 @@ package IkhsanFirdauz.jfood;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import javax.xml.crypto.Data;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -21,10 +22,16 @@ public class JFood
      */
     public static void main (String[] args)
     {
-
         SpringApplication.run(JFood.class, args);
+
+
+        //DatabaseCustomerPostgre.insertCustomer(13, "ikhsan", "ikhsan@gmail.com", "123456");
+
+        //System.out.println(DatabaseCustomerPostgre.getLastCustomerId());
+
         Location objekLokasi1 = new Location("Depok", "Jawa", "Ada UI");
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Joko1", "joko1@gmail.com", "081234323", objekLokasi1));
+
 
         //add foods
         try
@@ -46,6 +53,8 @@ public class JFood
         {
             System.out.println(e.getMessage());
         }
+
+
 
     }
         /* BLOCK TEST
@@ -291,7 +300,9 @@ public class JFood
             System.out.println(e3.getMessage());
         }
 
-        try
+
+            System.out.println(e3.getMessage());
+        } try
         {
             DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1,
                     list2, DatabaseCustomer.getCustomerById(3), 10000));
@@ -302,8 +313,6 @@ public class JFood
         }
         catch(OngoinInvoiceAlreadyExistException e3)
         {
-            System.out.println(e3.getMessage());
-        }
 
 
         System.out.println("=========YANG MASUK DATABASE INVOICE=========");

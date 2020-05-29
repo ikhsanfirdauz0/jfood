@@ -37,21 +37,18 @@ public class DatabaseInvoice {
             {
                 invoiceList.add(invoice);
             }
-            else
-            {
-                invoiceList = null;
-            }
         }
         return invoiceList;
     }
 
     public static boolean addInvoice(Invoice invoice) throws OngoinInvoiceAlreadyExistException
     {
+        int customerId = invoice.getCustomer().getId();
         for (Invoice iterasi : INVOICE_DATABASE)
         {
-            if(invoice.getCustomer().equals(iterasi.getCustomer()) && invoice.getInvoiceStatus() == InvoiceStatus.Ongoing)
+            if(iterasi.getCustomer().getId() == customerId && iterasi.getInvoiceStatus() == InvoiceStatus.Ongoing)
             {
-                throw new OngoinInvoiceAlreadyExistException(iterasi);
+                throw new OngoinInvoiceAlreadyExistException(invoice);
             }
         }
         INVOICE_DATABASE.add(invoice);

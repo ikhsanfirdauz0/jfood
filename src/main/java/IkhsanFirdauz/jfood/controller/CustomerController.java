@@ -22,12 +22,11 @@ public class CustomerController
         Customer customer = null;
         try
         {
-            customer = DatabaseCustomer.getCustomerById(id);
+            customer = DatabaseCustomerPostgre.getCustomer(id);
         }
-        catch (CustomerNotFoundException e)
+        catch (Exception e)
         {
-            e.getMessage();
-            return null;
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
         return customer;
     }
@@ -37,16 +36,22 @@ public class CustomerController
                                 @RequestParam(value="email") String email,
                                 @RequestParam(value="password") String password)
     {
-        Customer customer = new Customer(DatabaseCustomer.getLastId()+1, name, email, password);
         try
         {
-            DatabaseCustomer.addCustomer(customer);
+            DatabaseCustomerPostgre.insertCustomer(
+                    DatabaseCustomerPostgre.getLastCustomerId()+1,
+                    name,
+                    email,
+                    password);
         }
-        catch (EmailAlreadyExistException e)
+        catch (Exception e)
         {
-            e.getMessage();
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
             return null;
         }
+
+        Customer customer = new Customer(DatabaseCustomerPostgre.getLastCustomerId()+1, name, email, password);
+
         return customer;
     }
 
@@ -54,16 +59,18 @@ public class CustomerController
     public Customer loginCustomer(@RequestParam(value="email") String email,
                                     @RequestParam(value="password") String password)
     {
-        Customer customer;
+        Customer customer = null;
+
         try
         {
-           customer = DatabaseCustomer.getCustomerLogin(email, password);
+            customer = DatabaseCustomerPostgre.getLogin(email, password);
         }
         catch (Exception e)
         {
-            e.getMessage();
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
             return null;
         }
         return customer;
+
     }
 }

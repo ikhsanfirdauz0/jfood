@@ -42,7 +42,7 @@ public class InvoiceController
     }
 
     @RequestMapping(value = "/invoiceStatus/{id}", method = RequestMethod.PUT)
-    public Invoice changeInvoiceStatus(@RequestParam(value = "id") int id,
+    public Invoice changeInvoiceStatus(@PathVariable(value = "id") int id,
                                        @RequestParam(value = "status") InvoiceStatus status) throws InvoiceNotFoundException
     {
         Invoice invoice = null;
@@ -59,7 +59,7 @@ public class InvoiceController
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public Boolean removeInvoice(@RequestParam(value = "id") int id) throws InvoiceNotFoundException
+    public Boolean removeInvoice(@PathVariable(value = "id") int id) throws InvoiceNotFoundException
     {
         try
         {
@@ -94,7 +94,7 @@ public class InvoiceController
 
         Invoice invoice = new CashInvoice(DatabaseInvoice.getLastId() + 1,
                                             dummyFoods,
-                                            DatabaseCustomer.getCustomerById(customerId),
+                                            DatabaseCustomerPostgre.getCustomer(customerId),
                                             deliveryFee);
         try
         {
@@ -130,7 +130,7 @@ public class InvoiceController
 
         Invoice invoice = new CashlessInvoice(DatabaseInvoice.getLastId() + 1,
                 dummyFoods,
-                DatabaseCustomer.getCustomerById(customerId),
+                DatabaseCustomerPostgre.getCustomer(customerId),
                 DatabasePromo.getPromoByCode(promoCode));
         try
         {
