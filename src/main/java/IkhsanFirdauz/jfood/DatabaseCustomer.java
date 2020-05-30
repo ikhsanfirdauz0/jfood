@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 /**
  * Write a description of class DatabaseCustomer here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ikhsan Firdauz
+ * @version 1.0
+ * @since 27 - 2 - 2020
  */
 public class DatabaseCustomer
 {

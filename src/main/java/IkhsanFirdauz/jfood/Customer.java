@@ -2,19 +2,19 @@ package IkhsanFirdauz.jfood;
 import java.util.*;
 import java.util.regex.*;
 import java.util.Date;
-import java.util.Calendar;  
+import java.util.Calendar;
 import java.lang.Object;
 import java.text.Format;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-  
-    /**
-     * this class is holding information about costumer
-     *
-     * @author Ikhsan Firdauz
-     * @version 1.0
-     * @since 27 - 2 - 2020
-     */
+
+/**
+ * this class is holding information about costumer
+ *
+ * @author Ikhsan Firdauz
+ * @version 1.0
+ * @since 27 - 2 - 2020
+ */
     public class Customer
     {
         

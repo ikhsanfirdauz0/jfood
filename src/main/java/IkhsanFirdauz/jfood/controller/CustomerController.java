@@ -3,6 +3,8 @@ package IkhsanFirdauz.jfood.controller;
 import IkhsanFirdauz.jfood.*;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Email;
+
 
 @RequestMapping("/customer")
 @CrossOrigin(origins = " ", allowedHeaders = "*")
@@ -38,7 +40,7 @@ public class CustomerController
     {
         try
         {
-            DatabaseCustomerPostgre.insertCustomer(
+            return DatabaseCustomerPostgre.insertCustomer(
                     DatabaseCustomerPostgre.getLastCustomerId()+1,
                     name,
                     email,
@@ -50,9 +52,6 @@ public class CustomerController
             return null;
         }
 
-        Customer customer = new Customer(DatabaseCustomerPostgre.getLastCustomerId()+1, name, email, password);
-
-        return customer;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)

@@ -139,6 +139,7 @@ public class InvoiceController
         catch (OngoinInvoiceAlreadyExistException e)
         {
             e.getMessage();
+            return null;
         }
         invoice.setTotalPrice();
         return invoice;

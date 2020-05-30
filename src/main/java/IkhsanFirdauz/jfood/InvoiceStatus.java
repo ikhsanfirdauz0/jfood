@@ -1,9 +1,9 @@
 package IkhsanFirdauz.jfood;
 /**
  * Enumeration class InvoiceStatus - write a description of the enum class here
- *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Ikhsan Firdauz
+ * @version 1.0
+ * @since 27 - 2 - 2020
  */
 public enum InvoiceStatus
 {

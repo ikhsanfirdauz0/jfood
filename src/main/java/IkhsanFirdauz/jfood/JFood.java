@@ -25,9 +25,6 @@ public class JFood
         SpringApplication.run(JFood.class, args);
 
 
-        //DatabaseCustomerPostgre.insertCustomer(13, "ikhsan", "ikhsan@gmail.com", "123456");
-
-        //System.out.println(DatabaseCustomerPostgre.getLastCustomerId());
 
         Location objekLokasi1 = new Location("Depok", "Jawa", "Ada UI");
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Joko1", "joko1@gmail.com", "081234323", objekLokasi1));
@@ -47,7 +44,7 @@ public class JFood
         try
         {
             DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1,
-                    "Cappuhino", DatabaseSeller.getSellerById(1), 12000, FoodCategory.Beverages));
+                    "Cappuchino", DatabaseSeller.getSellerById(1), 12000, FoodCategory.Beverages));
         }
         catch (SellerNotFoundException e)
         {

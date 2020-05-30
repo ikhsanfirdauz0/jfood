@@ -1,8 +1,11 @@
 package IkhsanFirdauz.jfood;
 
+import org.postgresql.util.PSQLException;
+
 import javax.swing.plaf.nimbus.State;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,18 +14,17 @@ import java.util.GregorianCalendar;
 
 public class DatabaseCustomerPostgre
 {
-    public static void insertCustomer(int id, String name, String email, String password)
+    public static Customer insertCustomer(int id, String name, String email, String password)
     {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, 1);
         Date date = cal.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date1 = sdf.format(date);
-
+        Connection c = DatabaseConnectionPostgre.connection();
 
         try
         {
-            Connection c = DatabaseConnectionPostgre.connection();
             Statement stmt = c.createStatement();
             String query = "INSERT INTO customer_list (id, name, email, password, join_date)"
                     + "VALUES (" + id + ",'" + name + "','"+ email + "','"+ password + "','" + date1 + "');";
@@ -30,10 +32,12 @@ public class DatabaseCustomerPostgre
             stmt.executeUpdate(query);
             stmt.close();
             c.close();
+            return new Customer(id, name, email, password);
         }
-        catch (Exception e)
+        catch (SQLException e)
         {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            return null;
         }
     }
 

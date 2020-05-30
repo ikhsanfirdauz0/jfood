@@ -2,9 +2,9 @@ package IkhsanFirdauz.jfood;
 import java.util.*;
 /**
  * Write a description of class DatabaseSeller here.
- *
  * @author Ikhsan Firdauz
  * @version 1.0
+ * @since 27 - 2 - 2020
  */
 public class DatabaseSeller
 {

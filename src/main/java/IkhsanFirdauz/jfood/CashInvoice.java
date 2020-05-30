@@ -8,9 +8,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 /**
  * Write a description of class CashInvoice here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ikhsan Firdauz
+ * @version 1.0
+ * @since 27 - 2 - 2020
  */
 public class CashInvoice extends Invoice
 {
