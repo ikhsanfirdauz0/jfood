@@ -7,7 +7,7 @@ import java.text.Format;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 /**
- * Write a description of class CashlessInvoice here.
+ * Subclass of Invoice class, this class stores information for any cashless transaction
  * @author Ikhsan Firdauz
  * @version 1.0
  * @since 27 - 2 - 2020
@@ -18,6 +18,13 @@ public class CashlessInvoice extends Invoice
     private static final PaymentType PAYMENT_TYPE = PaymentType.Cashless;
     private Promo promo;
 
+    /**
+     * Constructor for objects of class CashInvoice
+     * @param id is the id of the current invoice
+     * @param foods is an array list that consist of object of Food class that specifies a list of foods the customer orders in the current invoice
+     * @param customer is a customer class object of the customer who orders in respect of this current invoice
+     * @param promo is a promo class object that this invoice use for if any promo is used
+     */
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
         super(id, foods, customer);
@@ -29,23 +36,37 @@ public class CashlessInvoice extends Invoice
         this.promo = promo;
     }
 
-
+    /**
+     * getter for current invoice's payment type
+     * @return an integer value of this invoice delivery fee
+     */
     @Override
     public PaymentType getPaymentType()
     {
         return PAYMENT_TYPE;
     }
-    
+
+    /**
+     * getter for current invoice's promo in object of Promo class
+     * @return an object of Promo class if this invoice use any valid promo code
+     */
     public Promo getPromo()
     {
         return promo;
     }
-    
+
+    /**
+     * setter for current invoice's promo
+     * @param promo is the promo that this invoice is going to use
+     */
     public void setPromo(Promo promo)
     {
         this.promo = promo;
     }
 
+    /**
+     * this method is to calculate the total price for current invoice
+     */
     public void setTotalPrice()
     {
         super.totalPrice = 0;
@@ -67,6 +88,10 @@ public class CashlessInvoice extends Invoice
         }
     }
 
+    /**
+     * this method is to return a complete string of the invoice informations
+     * @return a String about the information of current invoice
+     */
     public String toString()
     {
         //String manipulation buat list makanan yang dibeli

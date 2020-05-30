@@ -1,7 +1,7 @@
 package IkhsanFirdauz.jfood;
 import java.util.*;
 /**
- * This class contains any information for the transaction invoice for each food
+ * This class contains any information for the transaction invoice for every transaction
  *
  * @author Ikhsan Firdauz
  * @version 1.0
@@ -71,13 +71,19 @@ public abstract class Invoice
     {
         return totalPrice;
     }
-    
+
+    /**
+     * this is the getter of invoice's customer
+     * @return a Customer Class object for current Invoice
+     */
     public Customer getCustomer()
     {
         return customer;
     }
-    
-    
+
+    /**
+     * getter abstract method for overriding in every Invoice subclasses, which will return the payment type
+     */
     public abstract PaymentType getPaymentType();
     
     public InvoiceStatus getInvoiceStatus()
@@ -93,12 +99,22 @@ public abstract class Invoice
     {
         this.date = date;
     }
-    
+
+    /**
+     * this is the setter of invoice's date
+     * @param year the year current invoice is created
+     * @param month the month current invoice is created in integer
+     * @param dayOfMonth the day current invoice is created in integer
+     */
     public void setDate(int year, int month, int dayOfMonth)
     {
         this.date = new GregorianCalendar(year, month-1, dayOfMonth);
     }
 
+    /**
+     * this is the setter of the invoice's ordered foods
+     * @param foods is an array list for every food ordered in the current invoice
+     */
     public void setFoods(ArrayList<Food> foods)
     {
         this.foods = foods;
@@ -110,6 +126,10 @@ public abstract class Invoice
      */
     public abstract void setTotalPrice();
 
+    /**
+     * this is the setter of the invoice's status
+     * @param invoiceStatus is the for which enum invoice status that wanted to be assigned to this invoice
+     */
     public void setInvoiceStatus(InvoiceStatus invoiceStatus)
     {
         this.invoiceStatus = invoiceStatus;

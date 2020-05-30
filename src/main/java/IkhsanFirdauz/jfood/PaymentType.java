@@ -1,6 +1,6 @@
 package IkhsanFirdauz.jfood;
 /**
- * Enumeration class PaymentType - write a description of the enum class here
+ * Enumerated Class that hold every possible payment type that can be inputted into Invoice Class object paymentType field
  *
  * @author (your name here)
  * @version (version number or date here)

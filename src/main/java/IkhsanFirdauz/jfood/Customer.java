@@ -9,7 +9,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
- * this class is holding information about costumer
+ * this class is holding information about customer
  *
  * @author Ikhsan Firdauz
  * @version 1.0
@@ -17,7 +17,6 @@ import java.text.SimpleDateFormat;
  */
     public class Customer
     {
-        
         private int id;
         private String name;
         private String email;

@@ -12,8 +12,22 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+/**
+ * this class is to store every customer registered in PostgreSQL database
+ *
+ * @author Ikhsan Firdauz
+ * @version 1.0
+ * @since 29 - 5 - 2020
+ */
 public class DatabaseCustomerPostgre
 {
+    /**
+     * this method is to insert a customer to Postgres Database
+     * @param id is the customer's id
+     * @param name is the customer's name
+     * @param email is the customer's email
+     * @param password is the customer's password
+     */
     public static Customer insertCustomer(int id, String name, String email, String password)
     {
         Calendar cal = Calendar.getInstance();
@@ -41,6 +55,10 @@ public class DatabaseCustomerPostgre
         }
     }
 
+    /**
+     * this method is to return the last customer's id
+     * @return an integer of the last customer added to customer database
+     */
     public static int getLastCustomerId()
     {
 
@@ -69,6 +87,11 @@ public class DatabaseCustomerPostgre
         return lastCustomerId;
     }
 
+    /**
+     * this method is to return a Customer class object by it's id
+     * @param id is the id of the expected customer that this method returns
+     * @return a Customer object in respect to the id in the parameter id
+     */
     public static Customer getCustomer(int id)
     {
         Customer customer = null;
@@ -114,6 +137,11 @@ public class DatabaseCustomerPostgre
         return customer;
     }
 
+    /**
+     * this method is to remove the specified customer from the database
+     * @param id is the customer's id to point to the customer that wanted to be removed
+     * @return a boolean, true if the customer is succeeded to be removed from the database, otherwise false
+     */
     public static void removeCustomer(int id)
     {
         try
@@ -132,6 +160,12 @@ public class DatabaseCustomerPostgre
         }
     }
 
+    /**
+     * this method is check if the email and the password match for any customer
+     * @param email is the customer's email that wanted to be match to the password
+     * @param password is the customer's password for the email in this method's parameter
+     * @return a Customer Class object that represented by the email in the email parameter only if the password match, otherwise return null
+     */
     public static Customer getLogin(String email, String password)
     {
         String checkPassword = "";

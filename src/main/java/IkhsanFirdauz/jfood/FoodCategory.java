@@ -1,9 +1,9 @@
 package IkhsanFirdauz.jfood;
 /**
- * Enumeration class FoodCategory - write a description of the enum class here
- *
- * @author (your name here)
- * @version (version number or date here)
+ * Enumerated Class that hold every possible food category that can be inputted into Food Class object foodCategory field
+ * @author Ikhsan Firdauz
+ * @version 1.0
+ * @since 27 - 2 - 2020
  */
 public enum FoodCategory
 {

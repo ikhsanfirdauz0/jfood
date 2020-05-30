@@ -3,27 +3,41 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
- * Write a description of class DatabasePromo here.
+ * this class contain the database of Promo
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ikhsan Firdauz
+ * @version 1.0
+ * @since 27 - 2 - 2020
  */
 public class DatabasePromo
 {
-    // instance variables - replace the example below with your own
     private static ArrayList<Promo> PROMO_DATABASE = new ArrayList<Promo>();
     private static int lastId = 0;
 
+    /**
+     * this method is getter for every promo in promo's database
+     * @return ArrayList<Promo> is the array list of every promo in the promo's database
+     */
     public static ArrayList<Promo> getPromoDatabase()
     {
         return PROMO_DATABASE;
     }
 
+    /**
+     * this method is to get the id of the last promo added to promo's database
+     * @return an integer of the last promo's id
+     */
     public static int getLastId()
     {
         return lastId;
     }
 
+    /**
+     * this method is to get some promo by specifying it's id
+     * @param id is the promo's id for the expected promo object this method returns
+     * @return a Promo class object in respect of the id specified in the parameter
+     * @throws PromoNotFoundException to check whether the promo that goes by the id in the parameter exist or not
+     */
     public static Promo getPromoById(int id) throws PromoNotFoundException
     {
         for(Promo promo : PROMO_DATABASE)
@@ -36,6 +50,11 @@ public class DatabasePromo
         throw new PromoNotFoundException(id);
     }
 
+    /**
+     * this method is to get some promo by specifying it's code
+     * @param code is the promo's code for the expected promo object this method returns
+     * @return a Promo class object in respect of it's code specified in the parameter
+     */
     public static Promo getPromoByCode(String code)
     {
         for(Promo promo : PROMO_DATABASE)
@@ -48,6 +67,11 @@ public class DatabasePromo
         return null;
     }
 
+    /**
+     * this method is to add a promo to the array list in the DatabasePromo that hold every promo registered
+     * @param promo is a Promo class object that wanted to be added to the DatabasePromo class array list
+     * @return a boolean, true if the promo is successfully added
+     */
     public static boolean addPromo (Promo promo) throws PromoCodeAlreadyExistsException
     {
         for (Promo iterasi : PROMO_DATABASE)
@@ -62,6 +86,12 @@ public class DatabasePromo
         return true;
     }
 
+
+    /**
+     * this method is to activate the promo by specifying it's id
+     * @param id is the id of the promo that wanted to be activated
+     * @return a boolean, true if the invoice is successfully activated
+     */
     public static boolean activePromo (int id)
     {
         for(Promo promo : PROMO_DATABASE)
@@ -74,6 +104,11 @@ public class DatabasePromo
         return true;
     }
 
+    /**
+     * this method is to deactivate the promo by specifying it's id
+     * @param id is the id of the promo that wanted to be deactivated
+     * @return a boolean, true if the invoice is successfully deactivated
+     */
     public static boolean deactivatePromo (int id)
     {
         for (Promo promo : PROMO_DATABASE)
@@ -86,6 +121,11 @@ public class DatabasePromo
         return true;
     }
 
+    /**
+     * this method is to remove a promo going by the id specified in the id parameter
+     * @param id is the id of the promo that wanted to be removed
+     * @return a boolean, true if the promo is successfully removed
+     */
     public static boolean removePromo (int id) throws PromoNotFoundException
     {
         for (Promo promo : PROMO_DATABASE)

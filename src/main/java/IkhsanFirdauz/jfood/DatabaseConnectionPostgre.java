@@ -5,7 +5,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-
+/**
+ * this class is to connect to local PostgreSQL Database
+ *
+ * @author Ikhsan Firdauz
+ * @version 1.0
+ * @since 29 - 5 - 2020
+ */
 public class DatabaseConnectionPostgre
 {
     public static Connection connection()

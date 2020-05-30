@@ -1,7 +1,8 @@
 package IkhsanFirdauz.jfood;
 import java.util.*;
 /**
- * Write a description of class DatabaseSeller here.
+ * this class contain the database of Seller
+ *
  * @author Ikhsan Firdauz
  * @version 1.0
  * @since 27 - 2 - 2020
